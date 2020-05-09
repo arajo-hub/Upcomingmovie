@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="container" align="center">
+        {% for movie in movies %}
+          <div>
+            <h3>{{ movie.title }}</h3>
+            <h3>{{ movie.date }}</h3>
+          </div>
+          {% empty %}
+          <div>
+            <h3>No movie.</h3>
+          </div>
+          {% endfor %}
+    </div>
+  </body>
+</html>

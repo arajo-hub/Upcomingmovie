@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Upcoming Movie Timeline</title>
+  </head>
+  <body>
+    <div class="container" align="center">
+      <h1>Upcoming movie timeline</h1>
+
+      <h2>Which movie are you interested in?</h2>
+      <form class="" action="{% url 'search:searchMovie'%}" method="get">
+        {% csrf_token %}
+        <input type="search" name="q">
+        <button type="submit">Search</button>
+      </form>
+
+
+      {% for movie in movies %}
+      <div class="container" align="center">
+        <div class="row">
+          <div>
+            <h2>{{ movie.title }}</h2>
+            <p>{{ movie.date }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </body>
+</html>
