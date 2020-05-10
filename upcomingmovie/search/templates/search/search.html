@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+{% extends 'parsed_data/parsed_movie_list.html' %}
+  {% block body_block %}
     <div class="container" align="center">
         {% for movie in movies %}
-          <div>
+          <div class="contents">
             <h3>{{ movie.title }}</h3>
-            <h3>{{ movie.date }}</h3>
+            <p>{{ movie.date }}</p>
           </div>
           {% empty %}
           <div>
@@ -17,5 +13,4 @@
           </div>
           {% endfor %}
     </div>
-  </body>
-</html>
+  {% endblock %}

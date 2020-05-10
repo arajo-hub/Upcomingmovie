@@ -1,0 +1,53 @@
+html, body::-webkit-scrollbar{
+  background: transparent;
+}
+
+
+.narbar{
+  color:white;
+  text-align:center;
+  padding-top:30px;
+  padding-bottom:30px;
+
+}
+
+.searchText{
+  border-radius:5px;
+  border:none;
+}
+
+.searchButton{
+  border-radius:5px;
+  border:none;
+  width:70px;
+  height:27px;
+  background-color: #898989;
+  color:white;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.search{
+  padding-top:20px;
+  padding-bottom:20px;
+}
+
+.unvisible{
+  padding-top:250px;
+}
+
+.listItem{
+  padding-top:30px;
+  padding-bottom:30px;
+}
+
+.pagename{
+  font-family: 'Fredoka One', cursive;
+}
+
+.subpagename{
+  font-family: 'Kalam', cursive;
+}
+
+.contents{
+  font-family: 'Noto Sans KR', sans-serif;
+}
