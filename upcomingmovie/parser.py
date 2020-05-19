@@ -1,6 +1,9 @@
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 
+import sqlite3
+con=sqlite3.connect('./db.sqlite3')
+
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE","upcomingmovie.settings")
 import django
@@ -31,8 +34,11 @@ def parse_movie():
 
     return movie
 
+cur=con.cursor()
+cur.execute('SELECT * FROM parsed_data_parsed_movie')
 
 if __name__=='__main__':
     movie_dict = parse_movie()
     for t, d in movie_dict.items():
-        parsed_movie(title=t, date=d).save()
+        print(t)
+                # parsed_movie(title=t, date=d).save()
