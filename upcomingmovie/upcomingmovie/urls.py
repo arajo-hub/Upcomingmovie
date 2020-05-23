@@ -19,7 +19,6 @@ from upcomingmovie import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.mainView.as_view(), name='main'),
-    path('list/', views.movieListView.as_view(), name='list'),
+    path('', views.movieListView.as_view(), name='list'),
     path('search/', include('search.urls'))
 ]

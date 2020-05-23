@@ -47,9 +47,25 @@ def parse_movie():
     return movie
 
 cur=con.cursor()
-cur.execute('SELECT * FROM parsed_data_parsed_movie')
+cur.execute('SELECT code FROM parsed_data_parsed_movie')
+updateData=[]
 
 if __name__=='__main__':
     movie_dict=parse_movie()
+
+    for row in cur:
+        if row[0] in movie_dict:
+            print(row, "있음")
+        else:
+            cur.execute('DELETE FROM parsed_data_parsed_movie')
+    con.commit()
+
     for key, value in movie_dict.items():
-        parsed_movie(title=value[0], date=value[1], code=key).save()
+        try:
+            parsed_movie(title=value[0], date=value[1], code=key).save()
+        except:
+            updateData.append((value[0], value[1], key))
+    print(updateData)
+    cur.executemany('UPDATE parsed_data_parsed_movie SET title=?, date=? WHERE code=?', updateData)
+    con.commit()
+    con.close()
