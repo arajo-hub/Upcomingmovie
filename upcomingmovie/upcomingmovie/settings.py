@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'movie',
     'parsed_data',
     'search',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
+
+AUTH_USER_MODEL='account.User'
